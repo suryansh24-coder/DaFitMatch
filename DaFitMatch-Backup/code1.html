@@ -1,0 +1,507 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DaFitMatch — The AI Fashion &amp; Styling World Model</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              azure: '#5B9BD5',
+              softSky: '#EBF4FC',
+              deepSlate: '#0F172A',
+              glassBorder: 'rgba(255, 255, 255, 0.45)',
+            }
+          },
+          backdropBlur: {
+            xs: '2px',
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 7s ease-in-out 2s infinite',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            'shimmer': 'shimmer 2.5s infinite linear',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.85', transform: 'scale(0.98)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles: Atmospheric Perspective & Glass Aesthetics -->
+<style data-purpose="atmosphere-perspective">
+    /* Architectural triangle perspective background matching Reference Image 1 */
+    .sky-perspective-container {
+      background: linear-gradient(180deg, #5798CE 0%, #76AFD9 35%, #A7CEEE 60%, #E8F2FA 82%, #FFFFFF 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Converging perspective horizon room */
+    .perspective-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+    }
+
+    .perspective-lines::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 140vw;
+      height: 100%;
+      transform: translateX(-50%);
+      background: 
+        linear-gradient(112deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.02) 48%, transparent 52%),
+        linear-gradient(248deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.02) 48%, transparent 52%);
+      opacity: 0.9;
+    }
+
+    /* Studio floor architectural infinity cove */
+    .infinity-floor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 38%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.85) 45%, #FFFFFF 100%);
+      pointer-events: none;
+    }
+  </style>
+<style data-purpose="glass-and-ui">
+    /* Ultra-sleek frosted glass styling identical to reference pill bar */
+    .glass-pill-bar {
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.12),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .glass-badge {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 12px 32px rgba(30, 58, 138, 0.08),
+                  0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .glass-card-hover {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 20px 40px rgba(30, 58, 138, 0.14);
+    }
+
+    /* Subtly luminous typography text-shadow */
+    .hero-title-shadow {
+      text-shadow: 0 4px 30px rgba(255, 255, 255, 0.5), 0 2px 12px rgba(15, 23, 42, 0.12);
+    }
+
+    /* Apple-style sliding indicator & liquid light shimmer */
+    .nav-indicator-pill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: 9999px;
+      pointer-events: none;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), width 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.14) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 4px 20px -2px rgba(255, 255, 255, 0.4), inset 0 1px 1px 0 rgba(255, 255, 255, 0.75);
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    /* Continuous glossy light beam / sheen sweep */
+    .glossy-shimmer-sweep {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: inherit;
+    }
+
+    .glossy-shimmer-sweep::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%);
+      animation: glossy-sweep 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes glossy-sweep {
+      0% {
+        transform: translateX(-150%) skewX(-20deg);
+      }
+      100% {
+        transform: translateX(250%) skewX(-20deg);
+      }
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased font-sans selection:bg-sky-200 selection:text-slate-900 overflow-x-hidden" style="background: linear-gradient(180deg, #b8d4e8 0%, #c8def0 30%, #dbe8f3 70%, #ecf3f8 100%); min-height: 100vh;">
+<!-- BEGIN: SiteHeader -->
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2 group" data-purpose="brand-logo" href="#">
+<span class="text-2xl font-bold tracking-tight text-white drop-shadow-sm flex items-center gap-1.5">
+          DaFitMatch
+          <span class="inline-block w-2.5 h-2.5 rotate-45 bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)] rounded-sm group-hover:rotate-90 transition-transform duration-500"></span>
+</span>
+</a>
+<!-- Center Desktop Navigation Links with Sliding Glossy Indicator -->
+<nav class="hidden md:flex items-center gap-1 glass-pill-bar p-1.5 rounded-full relative" data-purpose="main-nav" id="main-nav-bar">
+<!-- Sliding Glossy Apple-style Indicator Pill -->
+<div aria-hidden="true" class="nav-indicator-pill opacity-0" id="nav-indicator" style="transition: none; transform: translate(7px, 7px); width: 91.1875px; height: 32px; opacity: 1;">
+<div class="glossy-shimmer-sweep"></div>
+</div>
+<a class="nav-link relative z-10 px-4 py-1.5 rounded-full text-sm font-semibold tracking-tight transition-all duration-200 group flex items-center gap-1.5 active-nav" href="#hero">
+<svg class="w-3.5 h-3.5 text-white/90 drop-shadow-sm transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="inline-block drop-shadow-sm text-white" style="background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.18)); letter-spacing: -0.01em;">Home</span>
+</a>
+<a class="nav-link relative z-10 px-4 py-1.5 rounded-full text-sm font-medium tracking-tight text-white/85 hover:text-white transition-all duration-200 group flex items-center gap-1.5" href="#how-it-works">
+<svg class="w-3.5 h-3.5 text-white/80 drop-shadow-sm transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="inline-block transition-all duration-200 group-hover:drop-shadow-sm" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.72) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.12)); letter-spacing: -0.01em;">How It Works</span>
+</a>
+<a class="nav-link relative z-10 px-4 py-1.5 rounded-full text-sm font-medium tracking-tight text-white/85 hover:text-white transition-all duration-200 group flex items-center gap-1.5" href="#solo-styling">
+<svg class="w-3.5 h-3.5 text-white/80 drop-shadow-sm transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="inline-block transition-all duration-200 group-hover:drop-shadow-sm" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.72) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.12)); letter-spacing: -0.01em;">For Me</span>
+</a>
+<a class="nav-link relative z-10 px-4 py-1.5 rounded-full text-sm font-medium tracking-tight text-white/85 hover:text-white transition-all duration-200 group flex items-center gap-1.5" href="#couple-harmony">
+<svg class="w-3.5 h-3.5 text-white/80 drop-shadow-sm transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="inline-block transition-all duration-200 group-hover:drop-shadow-sm" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.72) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.12)); letter-spacing: -0.01em;">For Couples</span>
+</a>
+<a class="nav-link relative z-10 px-4 py-1.5 rounded-full text-sm font-medium tracking-tight text-white/85 hover:text-white transition-all duration-200 group flex items-center gap-1.5" href="#features">
+<svg class="w-3.5 h-3.5 text-white/80 drop-shadow-sm transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="inline-block transition-all duration-200 group-hover:drop-shadow-sm" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.72) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.12)); letter-spacing: -0.01em;">Features</span>
+</a></nav>
+<!-- Right Action CTAs -->
+<div class="flex items-center gap-4" data-purpose="header-cta">
+<a class="text-sm font-medium text-white/90 hover:text-white transition-colors duration-150 hidden sm:inline-block" href="#signin">
+          Sign In
+        </a>
+<a class="px-6 py-2 rounded-full text-sm font-semibold tracking-wide text-white border border-white/60 bg-white/20 hover:bg-white hover:text-slate-900 transition-all duration-300 backdrop-blur-md shadow-lg hover:shadow-xl hover:scale-105 active:scale-95" href="#playground">
+          Find My Fit
+        </a>
+</div>
+</div>
+</header>
+<!-- END: SiteHeader -->
+<!-- BEGIN: HeroSection -->
+<main class="sky-perspective-container min-h-screen relative flex flex-col justify-between pt-24 pb-12" id="hero" style="background: linear-gradient(rgb(184, 212, 232) 0%, rgb(200, 222, 240) 35%, rgb(219, 232, 243) 65%, rgb(236, 243, 248) 85%, rgb(244, 248, 251) 100%);">
+<!-- Perspective lines layer -->
+<div class="perspective-lines"></div>
+<!-- Background architectural perspective ceiling / converging cone identical to Ref 1 -->
+<div class="absolute inset-0 flex justify-center pointer-events-none opacity-40">
+<div class="w-[85vw] max-w-5xl h-full border-x border-white/40 transform -perspective-1000 rotate-x-6"></div>
+</div>
+<!-- Infinity studio floor fade -->
+<div class="infinity-floor"></div>
+<!-- Center Stage Container -->
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full flex-1 flex flex-col items-center justify-center text-center mt-4">
+<!-- Headline & Subheadline matching the exact scale of Ref 1 ("The world model") -->
+<div class="max-w-4xl mx-auto mt-6 mb-4">
+<h1 class="text-5xl sm:text-7xl lg:text-8xl font-normal tracking-tight text-white hero-title-shadow leading-[1.08] select-none"><span class="drop-shadow-lg" style="background: linear-gradient(180deg, #FFFFFF 20%, #E0F2FE 75%, #BAE6FD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 3px 18px rgba(2, 44, 91, 0.35));">Your Style. Your Occasion.</span> <br class="hidden sm:inline">
+<span class="font-semibold drop-shadow-xl inline-block mt-1" style="background: linear-gradient(135deg, #FFFFFF 15%, #E0F2FE 45%, #FDE68A 75%, #FFFFFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 4px 24px rgba(14, 53, 107, 0.45));">Your Perfect Fit.</span></h1>
+<p class="mt-4 text-base sm:text-lg text-white/90 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-sm px-4">
+          AI-powered styling that curates outfits around you, your occasion, and your vibe — for one or two.
+        </p>
+</div>
+<!-- Centerpiece Visual Container featuring Ref 2 Fashion Image -->
+<div class="relative w-full max-w-4xl my-2 flex items-center justify-center" data-purpose="centerpiece-model"><div class="absolute -inset-6 -z-10 pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/25 rounded-full blur-3xl"></div>
+<div class="absolute bottom-10 right-1/4 w-80 h-80 bg-sky-500/25 rounded-full blur-3xl"></div>
+<div class="absolute top-1/3 right-10 w-72 h-72 bg-amber-200/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Fashion Visual Frame -->
+<div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 group bg-slate-900/10">
+<img alt="High-fashion editorial photo of an attractive modern stylish couple standing together gracefully against a surreal sky and architectural perspective background with soft daylight. The man is wearing a tailored contemporary sage green and neutral designer streetwear suit, the woman is wearing a matching elegant minimalist chic coordinated blush rose and champagne dress. Sleek haute couture aesthetic, luxury Vogue editorial lighting, high detail, confident poses, complementary harmonious color palette" class="w-full max-h-[580px] sm:max-h-[640px] object-cover object-center transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out" src="couple-hero.png">
+<!-- Gentle gradient overlay to ground the image into the sky perspective -->
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-white/10 pointer-events-none"></div>
+<!-- Bottom floating prompt label inside image -->
+<div class="absolute bottom-4 left-6 right-6 hidden sm:flex items-center justify-between text-xs text-white/90 font-mono backdrop-blur-md bg-black/30 px-4 py-2 rounded-xl border border-white/20">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              Live AI Fitting: Dual Palette Synchronization
+            </span>
+<span class="tracking-wider">CODE: SAGE-BLUSH-98X</span>
+</div>
+</div>
+<!-- Floating AI Fashion Badge 1: Top Left - Style Match -->
+<div class="absolute -top-4 -left-4 sm:top-10 sm:-left-10 glass-badge p-3.5 sm:p-4 rounded-2xl animate-float-slow glass-card-hover text-left z-20" data-purpose="style-match-badge"><div class="flex items-center gap-2 mb-1.5">
+<div class="w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-500 to-emerald-400 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-cyan-500/30">✦</div>
+<span class="text-xs font-bold uppercase tracking-wider text-cyan-700">AI Match</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping ml-auto"></span>
+</div>
+<div class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-slate-950 via-slate-900 to-sky-700 bg-clip-text text-transparent">
+<span class="text-emerald-600 font-extrabold">98%</span> Fit Score
+</div>
+<p class="text-[11px] font-medium text-slate-500 mt-0.5 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Complementary cut &amp; tonal harmony
+</p></div>
+<!-- Floating AI Fashion Badge 2: Top Right - Theme & Occasion -->
+<div class="absolute -top-4 -right-4 sm:top-14 sm:-right-8 glass-badge p-3.5 sm:p-4 rounded-2xl animate-float-delayed glass-card-hover text-left z-20" data-purpose="occasion-badge"><div class="flex items-center gap-2 text-xs font-bold text-sky-800 uppercase tracking-wider mb-1">
+<span class="w-2 h-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 shadow-sm shadow-amber-400/50"></span>
+  Occasion Analysis
+</div>
+<div class="text-sm sm:text-base font-bold text-slate-900">Contemporary Soirée</div>
+<div class="inline-block mt-1 px-3 py-0.5 rounded-full text-[11px] font-semibold bg-gradient-to-r from-amber-50 to-orange-50 text-amber-900 border border-amber-300 shadow-sm">
+  Modern Minimal Luxe ✦
+</div></div>
+<!-- Floating AI Fashion Badge 3: Bottom Left - Couple Harmony -->
+<div class="absolute bottom-6 -left-6 sm:bottom-16 sm:-left-12 glass-badge p-3.5 sm:p-4 rounded-2xl animate-float-delayed glass-card-hover text-left z-20 hidden md:block" data-purpose="harmony-badge"><div class="text-xs font-bold text-emerald-700 flex items-center justify-between gap-1.5 mb-1">
+<span class="flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 fill-current text-emerald-600 drop-shadow-sm" viewBox="0 0 20 20">
+<path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"></path>
+</svg>
+    Couple Harmony
+  </span>
+<span class="font-mono font-bold text-xs bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-md border border-emerald-300/80">96%</span>
+</div>
+<div class="text-xs font-medium text-slate-700">Sage Green &amp; Soft Blush Sync</div>
+<div class="w-36 bg-slate-200/90 h-2 rounded-full mt-2.5 overflow-hidden p-[1px] shadow-inner">
+<div class="h-full w-[96%] rounded-full shadow-sm" style="background: linear-gradient(90deg, #10B981 0%, #06B6D4 45%, #F43F5E 100%);"></div>
+</div></div>
+<!-- Floating AI Fashion Badge 4: Bottom Right - Ready Status -->
+<div class="absolute bottom-8 -right-6 sm:bottom-12 sm:-right-8 glass-badge px-4 py-3 rounded-2xl animate-float-slow glass-card-hover flex items-center gap-3 z-20 hidden sm:flex" data-purpose="tryon-status"><div class="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-700 via-indigo-600 to-sky-500 text-white flex items-center justify-center font-bold shadow-lg shadow-blue-600/35 border border-white/60">
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="text-left">
+<div class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+    Try-On Ready
+    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+</div>
+<div class="text-[11px] text-slate-500 font-medium">Virtual fitting room ready</div>
+</div></div>
+</div>
+<!-- Ref 1 Signature Floating State Pill Bar overlaying bottom half -->
+
+<!-- Explanatory Subtitle under Pill Bar matching Ref 1 text position -->
+<p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto mt-2 leading-relaxed">
+        DaFitMatch builds intuitive style models that give you complete wardrobe control, from production-grade photorealistic try-ons to coordinated couples looks.
+      </p>
+</div>
+<!-- BEGIN: WorkflowRibbon -->
+<!-- Minimalist sequence: STYLE → AI CURATION → TRY-ON → SHOP -->
+<div class="w-full max-w-4xl mx-auto px-6 mt-8 z-20" data-purpose="workflow-ribbon"><div class="border-t border-b border-sky-300/40 bg-white/30 backdrop-blur-md rounded-2xl py-3.5 px-6 flex flex-wrap items-center justify-between text-xs sm:text-sm font-bold tracking-widest text-slate-700 uppercase shadow-sm">
+<span class="flex items-center gap-2 hover:text-sky-600 transition-colors group cursor-default">
+<span class="w-2.5 h-2.5 rounded-full bg-sky-500 shadow-[0_0_10px_rgba(14,165,233,0.8)]"></span>
+    01. STYLE
+  </span>
+<span class="text-sky-300 font-normal">→</span>
+<span class="flex items-center gap-2 hover:text-indigo-600 transition-colors group cursor-default">
+<span class="w-2.5 h-2.5 rounded-full bg-indigo-600 shadow-[0_0_10px_rgba(79,70,229,0.8)]"></span>
+    02. AI CURATION
+  </span>
+<span class="text-sky-300 font-normal">→</span>
+<span class="flex items-center gap-2 hover:text-pink-600 transition-colors group cursor-default">
+<span class="w-2.5 h-2.5 rounded-full bg-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.8)]"></span>
+    03. TRY-ON
+  </span>
+<span class="text-sky-300 font-normal">→</span>
+<span class="flex items-center gap-2 hover:text-emerald-600 transition-colors group cursor-default">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
+    04. SHOP
+  </span>
+</div></div>
+<!-- END: WorkflowRibbon -->
+</main>
+<!-- END: HeroSection -->
+<!-- BEGIN: CoupleStylingTeaser -->
+<section class="relative py-20 px-6 z-20" data-purpose="couple-teaser" id="couple-harmony" style="background: linear-gradient(180deg, #ecf3f8 0%, #f4f8fb 100%);">
+<div class="max-w-5xl mx-auto">
+<div class="glass-badge p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-xl bg-gradient-to-br from-white via-sky-50/30 to-indigo-50/20 relative overflow-hidden"><!-- Decorative ambient radial glows -->
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-sky-300/50 to-teal-200/40 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-16 -bottom-16 w-72 h-72 rounded-full bg-gradient-to-tr from-pink-200/40 to-indigo-200/35 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-8 text-left space-y-3">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-sky-100 to-teal-50 text-teal-800 border border-teal-200 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.8)]"></span>
+      Coordinated AI Styling
+    </div>
+<h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+      Matching doesn't mean identical.
+    </h2>
+<p class="text-slate-600 text-base sm:text-lg leading-relaxed pt-1 font-normal">
+      DaFitMatch creates coordinated looks that complement both of you — from balanced colours and complementary silhouettes to event-matched themes and individual vibes.
+    </p>
+<div class="flex flex-wrap gap-4 pt-3">
+<div class="flex items-center gap-2 text-sm text-slate-800 font-semibold">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 font-bold flex items-center justify-center text-xs shadow-sm border border-emerald-300">✓</span> Color Wheel Balancing
+      </div>
+<div class="flex items-center gap-2 text-sm text-slate-800 font-semibold">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 font-bold flex items-center justify-center text-xs shadow-sm border border-emerald-300">✓</span> Fabric &amp; Texture Pairing
+      </div>
+<div class="flex items-center gap-2 text-sm text-slate-800 font-semibold">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 font-bold flex items-center justify-center text-xs shadow-sm border border-emerald-300">✓</span> Unified Dress Code Precision
+      </div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-center gap-4">
+<a class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 hover:from-slate-900 hover:to-indigo-900 text-white font-semibold text-center shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-3 border border-indigo-500/30 group" href="#playground-area">
+<span class="tracking-wide">Style Us</span>
+<span class="text-lg group-hover:translate-x-1 transition-transform duration-200 text-cyan-300">→</span>
+</a>
+<p class="text-xs text-slate-500 font-medium text-left lg:text-right flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Free preview • No signup needed
+    </p>
+</div>
+</div></div>
+</div>
+</section>
+<!-- END: CoupleStylingTeaser -->
+<!-- BEGIN: SeamlessTransitionToPlayground -->
+<!-- Floor transition area leading with bouncing scroll trigger down to AI Playground -->
+<section class="bg-gradient-to-b from-[#f4f8fb] to-[#000000] py-16 text-center relative" data-purpose="scroll-transition" id="playground">
+<div class="max-w-2xl mx-auto px-4 flex flex-col items-center">
+<!-- Bouncing scroll interactive pill -->
+
+<!-- Playground placeholder stage preview -->
+<div class="w-full mt-12 p-8 rounded-3xl border border-dashed border-slate-300 bg-white/60 text-slate-400 flex flex-col items-center justify-center min-h-[160px]" id="replace-me-with-app">
+<span class="text-2xl mb-2">✦</span>
+<h3 class="text-base font-semibold text-slate-700">AI Fitting Room &amp; Wardrobe Canvas</h3>
+<p class="text-xs text-slate-400 mt-1 max-w-md">
+          Upload photo, choose event criteria, and generate instant 3D styled looks calibrated for solo or couple synchrony.
+        </p>
+</div>
+</div>
+</section>
+<!-- END: SeamlessTransitionToPlayground -->
+<!-- BEGIN: SiteFooter -->
+<footer class="py-12 px-6 border-t border-slate-200/80" style="background-color: rgb(241, 245, 249);">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-slate-600">
+<div class="flex items-center gap-2">
+<span class="font-bold text-slate-900 tracking-tight">DaFitMatch</span>
+<span class="text-slate-500">— The Next-Gen World Model for Fashion &amp; Personal Style</span>
+</div>
+<div class="flex items-center gap-6 font-medium text-slate-600">
+<a class="hover:text-slate-900 transition-colors" href="#">Privacy</a>
+<a class="hover:text-slate-900 transition-colors" href="#">Terms</a>
+<a class="hover:text-slate-900 transition-colors" href="#">Style API</a>
+<a class="hover:text-slate-900 transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+<!-- Interactive State Handlers & Apple Sliding Navigation Script -->
+<script data-purpose="interactive-state-toggle">
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Sliding Glossy Apple-style Navigation Indicator
+      const navBar = document.getElementById('main-nav-bar');
+      const indicator = document.getElementById('nav-indicator');
+      const navLinks = navBar ? navBar.querySelectorAll('.nav-link') : [];
+      let activeLink = navBar ? navBar.querySelector('.active-nav') || navLinks[0] : null;
+
+      function updateIndicator(target, animate = true) {
+        if (!target || !indicator || !navBar) return;
+        const navRect = navBar.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+
+        const leftOffset = targetRect.left - navRect.left;
+        const width = targetRect.width;
+        const height = targetRect.height;
+        const topOffset = targetRect.top - navRect.top;
+
+        if (!animate) {
+          indicator.style.transition = 'none';
+        } else {
+          indicator.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), width 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease';
+        }
+
+        indicator.style.transform = `translate(${leftOffset}px, ${topOffset}px)`;
+        indicator.style.width = `${width}px`;
+        indicator.style.height = `${height}px`;
+        indicator.style.opacity = '1';
+      }
+
+      // Initialize indicator position
+      if (activeLink) {
+        requestAnimationFrame(() => {
+          updateIndicator(activeLink, false);
+        });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          updateIndicator(link);
+        });
+
+        link.addEventListener('click', (e) => {
+          navLinks.forEach(l => l.classList.remove('active-nav'));
+          link.classList.add('active-nav');
+          activeLink = link;
+          updateIndicator(link);
+        });
+      });
+
+      if (navBar) {
+        navBar.addEventListener('mouseleave', () => {
+          if (activeLink) {
+            updateIndicator(activeLink);
+          } else {
+            indicator.style.opacity = '0';
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        if (activeLink) {
+          updateIndicator(activeLink, false);
+        }
+      });
+
+      // 2. State buttons toggle in Hero Section
+      const stateButtons = document.querySelectorAll('[data-purpose="state-pill-selector"] button');
+      stateButtons.forEach((btn, index) => {
+        if (index > 0) { // Keep 'Select state ->' fixed
+          btn.addEventListener('click', () => {
+            stateButtons.forEach((b, i) => {
+              if (i > 0) {
+                b.classList.remove('bg-white', 'text-slate-900', 'shadow-md');
+                b.classList.add('text-white/90');
+              }
+            });
+            btn.classList.add('bg-white', 'text-slate-900', 'shadow-md');
+            btn.classList.remove('text-white/90');
+          });
+        }
+      });
+    });
+  </script>
+
+</body></html>

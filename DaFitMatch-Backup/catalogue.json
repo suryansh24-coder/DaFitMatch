@@ -1,0 +1,825 @@
+{
+    "catalogues": [
+        {
+            "id": "casual",
+            "name": "Casual",
+            "description": "Relaxed everyday outfits with comfortable and modern styling.",
+            "outfits": [
+                {
+                    "id": "casual-01",
+                    "name": "Relaxed Linen Look",
+                    "gender": "men",
+                    "items": [
+                        "Linen Shirt",
+                        "Straight Fit Trousers",
+                        "White Sneakers"
+                    ],
+                    "colors": [
+                        "Sage Green",
+                        "Cream",
+                        "White"
+                    ],
+                    "style": "Minimal Casual",
+                    "price": 5299,
+                    "platform": "H&M",
+                    "matchScore": 94,
+                    "image": "public/images/catalogue/casual-01.jpg",
+                    "model3D": "/models/outfits/casual-01.glb",
+                    "tryOnImage": "/images/try-on/casual/casual-01.jpg"
+                },
+                {
+                    "id": "casual-02",
+                    "name": "Weekend Denim",
+                    "gender": "men",
+                    "items": [
+                        "Denim Shirt",
+                        "White T-Shirt",
+                        "Blue Jeans",
+                        "Sneakers"
+                    ],
+                    "colors": [
+                        "Blue",
+                        "White"
+                    ],
+                    "style": "Everyday Casual",
+                    "price": 4799,
+                    "platform": "UNIQLO",
+                    "matchScore": 91,
+                    "image": "public/images/catalogue/casual-02.jpg",
+                    "model3D": "/models/outfits/casual-02.glb",
+                    "tryOnImage": "/images/try-on/casual/casual-02.jpg"
+                },
+                {
+                    "id": "casual-03",
+                    "name": "Soft Summer Dress",
+                    "gender": "women",
+                    "items": [
+                        "Midi Dress",
+                        "Minimal Sandals",
+                        "Crossbody Bag"
+                    ],
+                    "colors": [
+                        "Blush Pink",
+                        "Cream"
+                    ],
+                    "style": "Soft Casual",
+                    "price": 3999,
+                    "platform": "H&M",
+                    "matchScore": 96,
+                    "image": "public/images/catalogue/casual-03.jpg",
+                    "model3D": "/models/outfits/casual-03.glb",
+                    "tryOnImage": "/images/try-on/casual/casual-03.jpg"
+                },
+                {
+                    "id": "casual-04",
+                    "name": "Everyday Co-ord",
+                    "gender": "women",
+                    "items": [
+                        "Relaxed Top",
+                        "Wide Leg Trousers",
+                        "Sneakers"
+                    ],
+                    "colors": [
+                        "Beige",
+                        "White"
+                    ],
+                    "style": "Contemporary Casual",
+                    "price": 3499,
+                    "platform": "Myntra",
+                    "matchScore": 92,
+                    "image": "public/images/catalogue/casual-04.jpg",
+                    "model3D": "/models/outfits/casual-04.glb",
+                    "tryOnImage": "/images/try-on/casual/casual-04.jpg"
+                },
+                {
+                    "id": "casual-05",
+                    "name": "Smart Weekend",
+                    "gender": "unisex",
+                    "items": [
+                        "Oversized Shirt",
+                        "Straight Jeans",
+                        "Low Top Sneakers"
+                    ],
+                    "colors": [
+                        "Olive",
+                        "Blue",
+                        "White"
+                    ],
+                    "style": "Smart Casual",
+                    "price": 4599,
+                    "platform": "Zara",
+                    "matchScore": 95,
+                    "image": "public/images/catalogue/casual-05.jpg",
+                    "model3D": "/models/outfits/casual-05.glb",
+                    "tryOnImage": "/images/try-on/casual/casual-05.jpg"
+                }
+            ]
+        },
+        {
+            "id": "formal",
+            "name": "Formal",
+            "description": "Polished outfits for business, office and sophisticated occasions.",
+            "outfits": [
+                {
+                    "id": "formal-01",
+                    "name": "Classic Navy Suit",
+                    "gender": "men",
+                    "items": [
+                        "Navy Blazer",
+                        "White Dress Shirt",
+                        "Tailored Trousers",
+                        "Leather Loafers"
+                    ],
+                    "colors": [
+                        "Navy",
+                        "White",
+                        "Black"
+                    ],
+                    "style": "Classic Formal",
+                    "price": 13999,
+                    "platform": "Zara",
+                    "matchScore": 97,
+                    "image": "public/images/catalogue/formal-01.jpg",
+                    "model3D": "/models/outfits/formal-01.glb",
+                    "tryOnImage": "/images/try-on/formal/formal-01.jpg"
+                },
+                {
+                    "id": "formal-02",
+                    "name": "Modern Grey Suit",
+                    "gender": "men",
+                    "items": [
+                        "Grey Blazer",
+                        "White Shirt",
+                        "Grey Trousers",
+                        "Derby Shoes"
+                    ],
+                    "colors": [
+                        "Grey",
+                        "White",
+                        "Black"
+                    ],
+                    "style": "Modern Formal",
+                    "price": 12499,
+                    "platform": "Myntra",
+                    "matchScore": 94,
+                    "image": "public/images/catalogue/formal-02.jpg",
+                    "model3D": "/models/outfits/formal-02.glb",
+                    "tryOnImage": "/images/try-on/formal/formal-02.jpg"
+                },
+                {
+                    "id": "formal-03",
+                    "name": "Minimal Office Look",
+                    "gender": "women",
+                    "items": [
+                        "Structured Blazer",
+                        "Straight Trousers",
+                        "Silk Blouse",
+                        "Heels"
+                    ],
+                    "colors": [
+                        "Black",
+                        "Cream"
+                    ],
+                    "style": "Minimal Formal",
+                    "price": 8999,
+                    "platform": "Zara",
+                    "matchScore": 96,
+                    "image": "public/images/catalogue/formal-03.jpg",
+                    "model3D": "/models/outfits/formal-03.glb",
+                    "tryOnImage": "/images/try-on/formal/formal-03.jpg"
+                },
+                {
+                    "id": "formal-04",
+                    "name": "Elegant Monochrome",
+                    "gender": "women",
+                    "items": [
+                        "Black Blazer",
+                        "Wide Leg Trousers",
+                        "White Blouse",
+                        "Pointed Heels"
+                    ],
+                    "colors": [
+                        "Black",
+                        "White"
+                    ],
+                    "style": "Monochrome Formal",
+                    "price": 8499,
+                    "platform": "H&M",
+                    "matchScore": 95,
+                    "image": "public/images/catalogue/formal-04.jpg",
+                    "model3D": "/models/outfits/formal-04.glb",
+                    "tryOnImage": "/images/try-on/formal/formal-04.jpg"
+                },
+                {
+                    "id": "formal-05",
+                    "name": "Business Smart",
+                    "gender": "unisex",
+                    "items": [
+                        "Tailored Blazer",
+                        "Oxford Shirt",
+                        "Formal Trousers",
+                        "Loafers"
+                    ],
+                    "colors": [
+                        "Charcoal",
+                        "White",
+                        "Brown"
+                    ],
+                    "style": "Business Smart",
+                    "price": 9999,
+                    "platform": "UNIQLO",
+                    "matchScore": 93,
+                    "image": "public/images/catalogue/formal-05.jpg",
+                    "model3D": "/models/outfits/formal-05.glb",
+                    "tryOnImage": "/images/try-on/formal/formal-05.jpg"
+                }
+            ]
+        },
+        {
+            "id": "wedding-festive",
+            "name": "Wedding & Festive",
+            "description": "Traditional and contemporary outfits for weddings and celebrations.",
+            "outfits": [
+                {
+                    "id": "festive-01",
+                    "name": "Sage Sherwani",
+                    "gender": "men",
+                    "items": [
+                        "Embroidered Sherwani",
+                        "Cream Churidar",
+                        "Mojari",
+                        "Pocket Square"
+                    ],
+                    "colors": [
+                        "Sage Green",
+                        "Cream",
+                        "Gold"
+                    ],
+                    "style": "Contemporary Ethnic",
+                    "price": 18999,
+                    "platform": "Manyavar",
+                    "matchScore": 98,
+                    "image": "public/images/catalogue/festive-01.jpg",
+                    "model3D": "/models/outfits/festive-01.glb",
+                    "tryOnImage": "/images/try-on/wedding-festive/festive-01.jpg"
+                },
+                {
+                    "id": "festive-02",
+                    "name": "Ivory Wedding Look",
+                    "gender": "men",
+                    "items": [
+                        "Ivory Kurta",
+                        "Embroidered Nehru Jacket",
+                        "White Trousers",
+                        "Mojari"
+                    ],
+                    "colors": [
+                        "Ivory",
+                        "Gold",
+                        "Cream"
+                    ],
+                    "style": "Elegant Festive",
+                    "price": 12999,
+                    "platform": "Tasva",
+                    "matchScore": 96,
+                    "image": "public/images/catalogue/festive-02.jpg",
+                    "model3D": "/models/outfits/festive-02.glb",
+                    "tryOnImage": "/images/try-on/wedding-festive/festive-02.jpg"
+                },
+                {
+                    "id": "festive-03",
+                    "name": "Blush Lehenga",
+                    "gender": "women",
+                    "items": [
+                        "Embroidered Lehenga",
+                        "Blouse",
+                        "Dupatta",
+                        "Statement Earrings"
+                    ],
+                    "colors": [
+                        "Blush Pink",
+                        "Rose Gold",
+                        "Cream"
+                    ],
+                    "style": "Modern Bridal",
+                    "price": 15999,
+                    "platform": "Myntra",
+                    "matchScore": 98,
+                    "image": "public/images/catalogue/festive-03.jpg",
+                    "model3D": "/models/outfits/festive-03.glb",
+                    "tryOnImage": "/images/try-on/wedding-festive/festive-03.jpg"
+                },
+                {
+                    "id": "festive-04",
+                    "name": "Emerald Festive Set",
+                    "gender": "women",
+                    "items": [
+                        "Embroidered Anarkali",
+                        "Dupatta",
+                        "Embellished Sandals",
+                        "Earrings"
+                    ],
+                    "colors": [
+                        "Emerald Green",
+                        "Gold"
+                    ],
+                    "style": "Festive Elegant",
+                    "price": 8999,
+                    "platform": "Myntra",
+                    "matchScore": 95,
+                    "image": "public/images/catalogue/festive-04.jpg",
+                    "model3D": "/models/outfits/festive-04.glb",
+                    "tryOnImage": "/images/try-on/wedding-festive/festive-04.jpg"
+                },
+                {
+                    "id": "festive-05",
+                    "name": "Contemporary Kurta Set",
+                    "gender": "men",
+                    "items": [
+                        "Short Kurta",
+                        "Straight Pants",
+                        "Embroidered Jacket",
+                        "Loafers"
+                    ],
+                    "colors": [
+                        "Black",
+                        "Gold",
+                        "Cream"
+                    ],
+                    "style": "Contemporary Festive",
+                    "price": 7499,
+                    "platform": "Jompers",
+                    "matchScore": 93,
+                    "image": "public/images/catalogue/festive-05.jpg",
+                    "model3D": "/models/outfits/festive-05.glb",
+                    "tryOnImage": "/images/try-on/wedding-festive/festive-05.jpg"
+                }
+            ]
+        },
+        {
+            "id": "date-night",
+            "name": "Date Night",
+            "description": "Elegant evening looks designed for dinners, dates and special evenings.",
+            "outfits": [
+                {
+                    "id": "date-01",
+                    "name": "Midnight Minimal",
+                    "gender": "men",
+                    "items": [
+                        "Black Shirt",
+                        "Tailored Black Trousers",
+                        "Chelsea Boots",
+                        "Minimal Watch"
+                    ],
+                    "colors": [
+                        "Black",
+                        "White"
+                    ],
+                    "style": "Dark Minimal",
+                    "price": 7999,
+                    "platform": "Zara",
+                    "matchScore": 97,
+                    "image": "public/images/catalogue/date-01.jpg",
+                    "model3D": "/models/outfits/date-01.glb",
+                    "tryOnImage": "/images/try-on/date-night/date-01.jpg"
+                },
+                {
+                    "id": "date-02",
+                    "name": "Modern Romance",
+                    "gender": "women",
+                    "items": [
+                        "Satin Midi Dress",
+                        "Heels",
+                        "Small Shoulder Bag",
+                        "Minimal Earrings"
+                    ],
+                    "colors": [
+                        "Burgundy",
+                        "Black"
+                    ],
+                    "style": "Elegant Evening",
+                    "price": 6999,
+                    "platform": "Myntra",
+                    "matchScore": 96,
+                    "image": "public/images/catalogue/date-02.jpg",
+                    "model3D": "/models/outfits/date-02.glb",
+                    "tryOnImage": "/images/try-on/date-night/date-02.jpg"
+                },
+                {
+                    "id": "date-03",
+                    "name": "Smart Evening",
+                    "gender": "men",
+                    "items": [
+                        "Textured Blazer",
+                        "Black T-Shirt",
+                        "Tailored Trousers",
+                        "Loafers"
+                    ],
+                    "colors": [
+                        "Charcoal",
+                        "Black"
+                    ],
+                    "style": "Smart Evening",
+                    "price": 10999,
+                    "platform": "H&M",
+                    "matchScore": 95,
+                    "image": "public/images/catalogue/date-03.jpg",
+                    "model3D": "/models/outfits/date-03.glb",
+                    "tryOnImage": "/images/try-on/date-night/date-03.jpg"
+                },
+                {
+                    "id": "date-04",
+                    "name": "Satin Night",
+                    "gender": "women",
+                    "items": [
+                        "Satin Slip Dress",
+                        "Strappy Heels",
+                        "Clutch",
+                        "Gold Earrings"
+                    ],
+                    "colors": [
+                        "Champagne",
+                        "Gold"
+                    ],
+                    "style": "Luxury Evening",
+                    "price": 7999,
+                    "platform": "Zara",
+                    "matchScore": 98,
+                    "image": "public/images/catalogue/date-04.jpg",
+                    "model3D": "/models/outfits/date-04.glb",
+                    "tryOnImage": "/images/try-on/date-night/date-04.jpg"
+                },
+                {
+                    "id": "date-05",
+                    "name": "Earth Tone Date",
+                    "gender": "unisex",
+                    "items": [
+                        "Brown Overshirt",
+                        "Cream Trousers",
+                        "Leather Loafers",
+                        "Minimal Accessories"
+                    ],
+                    "colors": [
+                        "Brown",
+                        "Cream"
+                    ],
+                    "style": "Earth Tone Minimal",
+                    "price": 8499,
+                    "platform": "H&M",
+                    "matchScore": 94,
+                    "image": "public/images/catalogue/date-05.jpg",
+                    "model3D": "/models/outfits/date-05.glb",
+                    "tryOnImage": "/images/try-on/date-night/date-05.jpg"
+                }
+            ]
+        },
+        {
+            "id": "streetwear",
+            "name": "Streetwear",
+            "description": "Contemporary urban outfits with oversized silhouettes and bold styling.",
+            "outfits": [
+                {
+                    "id": "street-01",
+                    "name": "Oversized Utility",
+                    "gender": "men",
+                    "items": [
+                        "Oversized T-Shirt",
+                        "Cargo Trousers",
+                        "Chunky Sneakers",
+                        "Crossbody Bag"
+                    ],
+                    "colors": [
+                        "Black",
+                        "Olive",
+                        "White"
+                    ],
+                    "style": "Urban Utility",
+                    "price": 5999,
+                    "platform": "Myntra",
+                    "matchScore": 96,
+                    "image": "public/images/catalogue/street-01.jpg",
+                    "model3D": "/models/outfits/street-01.glb",
+                    "tryOnImage": "/images/try-on/streetwear/street-01.jpg"
+                },
+                {
+                    "id": "street-02",
+                    "name": "Denim Street",
+                    "gender": "men",
+                    "items": [
+                        "Oversized Denim Jacket",
+                        "Graphic T-Shirt",
+                        "Wide Jeans",
+                        "Sneakers"
+                    ],
+                    "colors": [
+                        "Blue",
+                        "White"
+                    ],
+                    "style": "Denim Streetwear",
+                    "price": 7499,
+                    "platform": "H&M",
+                    "matchScore": 94,
+                    "image": "public/images/catalogue/street-02.jpg",
+                    "model3D": "/models/outfits/street-02.glb",
+                    "tryOnImage": "/images/try-on/streetwear/street-02.jpg"
+                },
+                {
+                    "id": "street-03",
+                    "name": "Monochrome Urban",
+                    "gender": "women",
+                    "items": [
+                        "Oversized Hoodie",
+                        "Cargo Pants",
+                        "Chunky Sneakers",
+                        "Shoulder Bag"
+                    ],
+                    "colors": [
+                        "Black",
+                        "Grey"
+                    ],
+                    "style": "Monochrome Streetwear",
+                    "price": 6499,
+                    "platform": "Myntra",
+                    "matchScore": 97,
+                    "image": "public/images/catalogue/street-03.jpg",
+                    "model3D": "/models/outfits/street-03.glb",
+                    "tryOnImage": "/images/try-on/streetwear/street-03.jpg"
+                },
+                {
+                    "id": "street-04",
+                    "name": "Color Block Co-ord",
+                    "gender": "women",
+                    "items": [
+                        "Oversized Sweatshirt",
+                        "Wide Leg Pants",
+                        "Sneakers",
+                        "Cap"
+                    ],
+                    "colors": [
+                        "Blue",
+                        "Cream",
+                        "Green"
+                    ],
+                    "style": "Color Block",
+                    "price": 4999,
+                    "platform": "Myntra",
+                    "matchScore": 93,
+                    "image": "public/images/catalogue/street-04.jpg",
+                    "model3D": "/models/outfits/street-04.glb",
+                    "tryOnImage": "/images/try-on/streetwear/street-04.jpg"
+                },
+                {
+                    "id": "street-05",
+                    "name": "Relaxed Cargo",
+                    "gender": "unisex",
+                    "items": [
+                        "Boxy T-Shirt",
+                        "Relaxed Cargo Pants",
+                        "Retro Sneakers",
+                        "Bucket Hat"
+                    ],
+                    "colors": [
+                        "Cream",
+                        "Olive",
+                        "Black"
+                    ],
+                    "style": "Relaxed Street",
+                    "price": 5799,
+                    "platform": "UNIQLO",
+                    "matchScore": 95,
+                    "image": "public/images/catalogue/street-05.jpg",
+                    "model3D": "/models/outfits/street-05.glb",
+                    "tryOnImage": "/images/try-on/streetwear/street-05.jpg"
+                },
+                {
+                    "id": "street-06",
+                    "name": "NOBERO Oversized Co-ord",
+                    "gender": "men",
+                    "items": [
+                        "Oversized T-Shirt",
+                        "Matching Relaxed Shorts/Pants"
+                    ],
+                    "colors": [
+                        "Neutral",
+                        "White"
+                    ],
+                    "style": "Oversized Urban",
+                    "price": 1499,
+                    "platform": "Myntra",
+                    "matchScore": 95,
+                    "image": "public/images/catalogue/street-06.jpg",
+                    "productUrl": "",
+                    "model3D": "/models/outfits/street-06.glb",
+                    "tryOnImage": "/images/try-on/streetwear/street-06.jpg"
+                }
+            ]
+        },
+        {
+            "id": "couple-coordinated",
+            "name": "Couple Coordinated",
+            "description": "Two individual outfits coordinated through color, texture and occasion.",
+            "outfits": [
+                {
+                    "id": "couple-01",
+                    "name": "Sage & Blush Harmony",
+                    "gender": "couple",
+                    "occasion": "Contemporary Soir\u00e9e",
+                    "person1": {
+                        "gender": "men",
+                        "items": [
+                            "Sage Green Blazer",
+                            "Cream T-Shirt",
+                            "Cream Trousers",
+                            "Loafers"
+                        ],
+                        "platform": "H&M",
+                        "model3D": "/models/outfits/couple-01-person1.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-01-person1.jpg"
+                    },
+                    "person2": {
+                        "gender": "women",
+                        "items": [
+                            "Blush Satin Dress",
+                            "Minimal Heels",
+                            "Gold Earrings"
+                        ],
+                        "platform": "Myntra",
+                        "model3D": "/models/outfits/couple-01-person2.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-01-person2.jpg"
+                    },
+                    "palette": [
+                        "Sage Green",
+                        "Blush Pink",
+                        "Cream"
+                    ],
+                    "coordination": "Color Harmony",
+                    "price": 13999,
+                    "matchScore": 98,
+                    "image": "public/images/catalogue/couple-01.jpg",
+                    "model3D": "/models/outfits/couple-01.glb",
+                    "tryOnImage": "/images/try-on/couple-coordinated/couple-01.jpg"
+                },
+                {
+                    "id": "couple-02",
+                    "name": "Black & Champagne",
+                    "gender": "couple",
+                    "occasion": "Date Night",
+                    "person1": {
+                        "gender": "men",
+                        "items": [
+                            "Black Blazer",
+                            "Black Shirt",
+                            "Tailored Trousers",
+                            "Loafers"
+                        ],
+                        "platform": "Zara",
+                        "model3D": "/models/outfits/couple-02-person1.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-02-person1.jpg"
+                    },
+                    "person2": {
+                        "gender": "women",
+                        "items": [
+                            "Champagne Satin Dress",
+                            "Black Heels",
+                            "Gold Clutch"
+                        ],
+                        "platform": "Zara",
+                        "model3D": "/models/outfits/couple-02-person2.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-02-person2.jpg"
+                    },
+                    "palette": [
+                        "Black",
+                        "Champagne",
+                        "Gold"
+                    ],
+                    "coordination": "Color Contrast",
+                    "price": 18999,
+                    "matchScore": 97,
+                    "image": "public/images/catalogue/couple-02.jpg",
+                    "model3D": "/models/outfits/couple-02.glb",
+                    "tryOnImage": "/images/try-on/couple-coordinated/couple-02.jpg"
+                },
+                {
+                    "id": "couple-03",
+                    "name": "Ivory Festive Pair",
+                    "gender": "couple",
+                    "occasion": "Wedding",
+                    "person1": {
+                        "gender": "men",
+                        "items": [
+                            "Ivory Kurta",
+                            "Gold Nehru Jacket",
+                            "White Trousers",
+                            "Mojari"
+                        ],
+                        "platform": "Manyavar",
+                        "model3D": "/models/outfits/couple-03-person1.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-03-person1.jpg"
+                    },
+                    "person2": {
+                        "gender": "women",
+                        "items": [
+                            "Ivory Lehenga",
+                            "Gold Blouse",
+                            "Dupatta",
+                            "Statement Earrings"
+                        ],
+                        "platform": "Myntra",
+                        "model3D": "/models/outfits/couple-03-person2.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-03-person2.jpg"
+                    },
+                    "palette": [
+                        "Ivory",
+                        "Gold",
+                        "Cream"
+                    ],
+                    "coordination": "Shared Palette",
+                    "price": 24999,
+                    "matchScore": 99,
+                    "image": "public/images/catalogue/couple-03.jpg",
+                    "model3D": "/models/outfits/couple-03.glb",
+                    "tryOnImage": "/images/try-on/couple-coordinated/couple-03.jpg"
+                },
+                {
+                    "id": "couple-04",
+                    "name": "Denim & White",
+                    "gender": "couple",
+                    "occasion": "Casual Day Out",
+                    "person1": {
+                        "gender": "men",
+                        "items": [
+                            "Denim Shirt",
+                            "White T-Shirt",
+                            "Blue Jeans",
+                            "White Sneakers"
+                        ],
+                        "platform": "UNIQLO",
+                        "model3D": "/models/outfits/couple-04-person1.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-04-person1.jpg"
+                    },
+                    "person2": {
+                        "gender": "women",
+                        "items": [
+                            "White Top",
+                            "Denim Skirt",
+                            "White Sneakers",
+                            "Crossbody Bag"
+                        ],
+                        "platform": "H&M",
+                        "model3D": "/models/outfits/couple-04-person2.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-04-person2.jpg"
+                    },
+                    "palette": [
+                        "Blue",
+                        "White"
+                    ],
+                    "coordination": "Texture Matching",
+                    "price": 8999,
+                    "matchScore": 95,
+                    "image": "public/images/catalogue/couple-04.jpg",
+                    "model3D": "/models/outfits/couple-04.glb",
+                    "tryOnImage": "/images/try-on/couple-coordinated/couple-04.jpg"
+                },
+                {
+                    "id": "couple-05",
+                    "name": "Earth Tone Couple",
+                    "gender": "couple",
+                    "occasion": "Resort Evening",
+                    "person1": {
+                        "gender": "men",
+                        "items": [
+                            "Beige Linen Shirt",
+                            "Cream Trousers",
+                            "Brown Loafers"
+                        ],
+                        "platform": "UNIQLO",
+                        "model3D": "/models/outfits/couple-05-person1.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-05-person1.jpg"
+                    },
+                    "person2": {
+                        "gender": "women",
+                        "items": [
+                            "Beige Linen Dress",
+                            "Flat Sandals",
+                            "Minimal Shoulder Bag"
+                        ],
+                        "platform": "H&M",
+                        "model3D": "/models/outfits/couple-05-person2.glb",
+                        "tryOnImage": "/images/try-on/couple-coordinated/couple-05-person2.jpg"
+                    },
+                    "palette": [
+                        "Beige",
+                        "Cream",
+                        "Brown"
+                    ],
+                    "coordination": "Fabric & Color Harmony",
+                    "price": 10499,
+                    "matchScore": 96,
+                    "image": "public/images/catalogue/couple-05.jpg",
+                    "model3D": "/models/outfits/couple-05.glb",
+                    "tryOnImage": "/images/try-on/couple-coordinated/couple-05.jpg"
+                }
+            ]
+        }
+    ]
+}
