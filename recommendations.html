@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Personalised outfit recommendations ranked against your DaFitMatch aesthetic profile."/>
+<title>Recommendations · DaFitMatch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+  :root { --sky-1:#eaf3fb; --sky-2:#f7fbff; }
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #dbeeff 0%, rgba(219,238,255,0) 60%),
+      radial-gradient(900px 500px at 90% 0%, #fde8f0 0%, rgba(253,232,240,0) 55%),
+      linear-gradient(180deg, var(--sky-1), var(--sky-2));
+    min-height: 100vh;
+    color: #0f172a;
+  }
+  .glass { background: rgba(255,255,255,0.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .site-header { transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease; }
+  .site-header.scrolled { background: rgba(255,255,255,0.82); backdrop-filter: blur(14px); box-shadow: 0 10px 30px rgba(15,23,42,.08); }
+  .chip-nav { transition: all .2s ease; }
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 group">
+      <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-slate-900 to-indigo-700 flex items-center justify-center shadow-lg">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.09 6.26L20.5 9.27l-5 3.64L17.18 19 12 15.27 6.82 19l1.68-6.09-5-3.64 6.41-.01L12 3z"/></svg>
+      </span>
+      <span class="text-lg font-black tracking-tight text-slate-900">DaFitMatch</span>
+    </a>
+    <nav class="hidden sm:flex items-center gap-1">
+      <a class="chip-nav px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white/70" href="index.html">Home</a>
+      <a class="chip-nav px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white/70" href="aesthetic.html">Discover Aesthetic</a>
+      <span class="chip-nav px-4 py-1.5 rounded-full text-sm font-semibold text-slate-900 bg-white/80 border border-white/70 shadow-sm">Recommendations</span>
+      <a class="chip-nav px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white/70 hidden lg:inline-block" href="ai-fit-studio.html">AI Fit Studio</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a class="text-sm font-semibold text-slate-600 hover:text-slate-900 hidden sm:inline-block cursor-pointer" id="nav-signin-btn" onclick="openAuthModal()">Sign In</a>
+      <div class="hidden items-center gap-2 relative group cursor-pointer" id="nav-user-profile">
+        <img alt="Profile" class="w-8 h-8 rounded-full border border-white/50 shadow-sm object-cover" src=""/>
+        <span class="text-sm font-medium text-slate-700 user-name hidden md:inline-block"></span>
+        <div class="absolute top-full right-0 mt-2 w-48 bg-white/95 backdrop-blur-xl border border-slate-200/60 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden transform origin-top-right scale-95 group-hover:scale-100 z-50">
+          <div class="p-2">
+            <a class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100/80 rounded-xl transition-colors font-medium" href="aesthetic.html">My Aesthetic</a>
+            <a class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-100/80 rounded-xl transition-colors font-medium" href="fit-profile.html">My Fit Profile</a>
+            <div class="h-px w-full bg-slate-200/50 my-1"></div>
+            <a class="block px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-xl transition-colors font-medium" href="#" onclick="AuthState.signOut(); return false;">Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="pt-28 pb-24 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="mb-10">
+      <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-600 mb-3">Step 4 · Curated for you</p>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 max-w-3xl">Your personalised recommendations</h1>
+      <p class="mt-4 text-slate-500 max-w-2xl leading-relaxed">Each look is scored against your saved aesthetic profile — colours, formality, fit and priorities — with a transparent reason behind every match.</p>
+
+      <div class="mt-7 glass rounded-3xl border border-white/60 shadow-sm p-5 sm:p-6">
+        <div class="flex items-center justify-between gap-4 mb-4">
+          <h2 class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Your profile</h2>
+          <div class="flex items-center gap-4">
+            <a href="fit-profile.html" class="text-xs font-bold text-sky-600 hover:text-sky-700">Edit fit profile →</a>
+            <a href="aesthetic.html" class="text-xs font-bold text-sky-600 hover:text-sky-700">Edit preferences →</a>
+          </div>
+        </div>
+        <div id="rec-profile" class="flex flex-wrap gap-2"></div>
+      </div>
+    </section>
+
+    <!-- ============================ FILTERS ============================ -->
+    <section class="glass rounded-3xl border border-white/60 shadow-sm p-4 sm:p-5 mb-8">
+      <div id="filter-couple-wrap" class="hidden mb-4 pb-4 border-b border-slate-200/60">
+        <label class="block max-w-xs">
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Couple mode · styling for</span>
+          <select id="filter-couple" class="w-full rounded-xl border-slate-200 bg-white/80 text-sm font-semibold text-slate-700 focus:border-sky-400 focus:ring-sky-400">
+            <option value="p1">Person 1</option>
+            <option value="p2">Person 2</option>
+          </select>
+        </label>
+        <p class="text-[11px] text-slate-500 mt-2">Each partner is ranked against their own fit, size and comfort profile.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+        <label class="block">
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Who is this for</span>
+          <select id="filter-gender" class="w-full rounded-xl border-slate-200 bg-white/80 text-sm font-semibold text-slate-700 focus:border-sky-400 focus:ring-sky-400">
+            <option value="all">Everyone</option>
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+            <option value="unisex">Unisex</option>
+            <option value="couple">Couples</option>
+          </select>
+        </label>
+        <label class="block">
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Occasion</span>
+          <select id="filter-category" class="w-full rounded-xl border-slate-200 bg-white/80 text-sm font-semibold text-slate-700 focus:border-sky-400 focus:ring-sky-400"></select>
+        </label>
+        <label class="block">
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Budget · <span id="filter-budget-label" class="text-slate-500">Any budget</span></span>
+          <input id="filter-budget" type="range" min="0" step="500" class="w-full accent-sky-500"/>
+        </label>
+      </div>
+    </section>
+
+    <!-- ============================ RESULTS ============================ -->
+    <section>
+      <div class="flex items-baseline justify-between mb-5">
+        <h2 class="text-xl font-black tracking-tight text-slate-900"><span id="rec-count">0 looks</span> for you</h2>
+      </div>
+      <p id="rec-note" class="text-sm text-slate-500 mb-6"></p>
+
+      <div id="rec-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <div id="rec-empty" class="hidden text-center py-16">
+        <p class="text-slate-500 font-medium">No looks match these filters yet.</p>
+        <p class="text-sm text-slate-400 mt-1">Try widening the occasion or budget, or <a class="font-semibold text-sky-600 hover:text-sky-700" href="aesthetic.html">update your profile</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============================ EXCLUDED (transparency) ============================ -->
+    <section id="rec-excluded-wrap" class="hidden mt-14">
+      <div class="glass rounded-3xl border border-white/60 shadow-sm p-6">
+        <h2 class="text-sm font-bold uppercase tracking-[0.16em] text-slate-400 mb-2">Filtered out by your exclusions</h2>
+        <p class="text-sm text-slate-500 mb-2">These looks were removed because they conflict with something you asked to avoid.</p>
+        <ul id="rec-excluded" class="divide-y divide-slate-100"></ul>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="border-t border-white/60 py-10 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-500">Ranked locally on your device — no personal data leaves your browser.</p>
+    <a href="index.html#playground-area" class="text-sm font-bold text-slate-700 hover:text-slate-900">Open the 3D playground →</a>
+  </div>
+</footer>
+
+<!-- ============================ SCRIPTS ============================ -->
+<script src="src/config.js"></script>
+<script src="src/core/auth.js"></script>
+<script src="src/core/store.js"></script>
+<script src="src/features/recommendations/recommendations.rules.js"></script>
+<script src="src/features/recommendations/recommendations.engine.js"></script>
+<script src="src/features/recommendations/recommendations.ui.js"></script>
+<script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 20); };
+<script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 20); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && typeof closeAuthModal === 'function') closeAuthModal();
+  });
+</script>
+
+<!-- ============================ AUTH MODAL ============================ -->
+<div id="auth-modal" class="fixed inset-0 z-[9999] bg-slate-900/40 backdrop-blur-sm opacity-0 invisible transition-all duration-300 flex items-center justify-center p-4" onclick="if(event.target === this) closeAuthModal()">
+  <div id="auth-modal-content" class="bg-white/95 backdrop-blur-xl w-full max-w-sm rounded-[24px] shadow-2xl p-8 relative scale-95 transition-transform duration-300 border border-white/50 text-center">
+    <button onclick="closeAuthModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors" aria-label="Close">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight mb-4">Welcome to DaFitMatch</h2>
+    <div id="auth-error-message" class="hidden mb-6 p-3 rounded-xl bg-red-50 text-red-600 text-sm font-semibold text-center border border-red-100"></div>
+    <div class="flex justify-center mb-6"><div id="google-signin-button"></div></div>
+    <p class="text-sm text-slate-500 font-medium">Sign in securely with your Google account</p>
+  </div>
+</div>
+
+<script async defer src="https://accounts.google.com/gsi/client"></script>
+</body>
+</html>
